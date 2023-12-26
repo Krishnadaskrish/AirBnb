@@ -90,7 +90,7 @@ const LoginModal = () => {
             outline
             label="Continue with google"
             icon={FcGoogle}
-            onClick={()=>{}}
+            onClick={()=>signIn('google')}
             />
              <Button
             outline
