@@ -4,14 +4,19 @@ import { decl } from 'postcss'
 export default async function getCurrentUser(){
     try {
 
-        const Listing = await prisma.listing.findMany({
+        const listings = await prisma.listing.findMany({
             orderBy:{
                 createdAt : 'desc'
             }
 
         })
 
-        return Listing
+        const safeListings = listings.map((listing) => ({
+            ...listing,
+            createdAt: listing.createdAt.toISOString(),
+          }));
+
+        return safeListings ;
 
         
      
