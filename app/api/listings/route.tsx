@@ -47,6 +47,7 @@ export async function POST (
 
         }
      });
+     console.log(listing)
 
      return NextResponse.json(listing)
 
