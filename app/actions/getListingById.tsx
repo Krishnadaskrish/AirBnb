@@ -15,9 +15,10 @@ export default async function getListingById(
         id: listingId,
       },
       include: {
-        user: true
-      }
+        user: true 
+      }  
     });
+    console.log(listing)
 
     if (!listing) {
       return null;
