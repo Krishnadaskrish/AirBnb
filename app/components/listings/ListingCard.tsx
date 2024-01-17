@@ -1,8 +1,7 @@
 'use client'
 import useRentModel from "@/app/hooks/UseRentModal";
 import useCountries from "@/app/hooks/useCountrySelect";
-import { SafeUser, SafeListing } from "@/app/types";
-import { Listing, Reservation } from "@prisma/client";
+import { SafeUser, SafeListing, SafeReservations } from "@/app/types";
 import { Value } from "@prisma/client/runtime/library";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useMemo } from "react";
@@ -13,7 +12,7 @@ import Button from "../Button";
 
 interface ListingCardProps {
     data  : SafeListing;
-    resevation ? : Reservation;
+    reservation ? : SafeReservations;
     onAction ? : (id : string )=> void ;
     disabled ? : boolean ;
     actionLabel ? :string ;
@@ -23,7 +22,7 @@ interface ListingCardProps {
 }
 const ListingCard : React.FC <ListingCardProps> = ({
     data ,
-    resevation,
+    reservation,
     onAction,
     disabled,
     actionLabel,
@@ -52,23 +51,23 @@ const ListingCard : React.FC <ListingCardProps> = ({
 
         const price = useMemo(()=>{
 
-            if(resevation){
-                return resevation.totalPrice
+            if(reservation){
+                return reservation.totalPrice
             }
             return data.price
 
-        },[resevation,data.price])
+        },[reservation,data.price])
 
         const reservationDate = useMemo (()=>{
-               if (!resevation){
+               if (!reservation){
                 return null ;
                }
 
-               const start = new Date (resevation.startDate)
-               const endDate = new Date(resevation.endDate)
+               const start = new Date (reservation.startDate)
+               const endDate = new Date(reservation.endDate)
 
                return `${format(start,'PP')} - ${format(endDate,'PP')}`
-        },[resevation])
+        },[reservation])
 
     return ( 
         <div 
@@ -93,9 +92,9 @@ const ListingCard : React.FC <ListingCardProps> = ({
                 </div>
                 <div className="flex flex-raw items-center gap-1">
                     <div className="font-semibold ">
-                        $ {price}
+                    ₹ {price}
                     </div>
-                    {!resevation && (
+                    {!reservation && (
                         <div className="font-light">
                             night
                         </div>
