@@ -4,7 +4,7 @@ import Select from 'react-select';
 export type CountrySelectValue = {
     flag : string,
     label : string,
-    latlg : string ,
+    latlg : number[] ,
     region : string,
     value : string
 }

@@ -18,7 +18,7 @@ export default async function getListingById(
         user: true 
       }  
     });
-    console.log(listing)
+    
 
     if (!listing) {
       return null;

@@ -52,6 +52,7 @@ const LoginModal = () => {
             router.refresh()
             loginModal.onClose()
         }
+        console.log('go',callback)
         if(callback?.error){
             toast.error(callback.error)
         }
