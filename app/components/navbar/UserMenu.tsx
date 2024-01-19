@@ -72,6 +72,10 @@ const UserMenu : React.FC <UserMenuProps> = ({
           onClick={rentmodal.onOpen}
           label="Airbnb my home"
         />
+        <MenuItem
+          onClick={()=>router.push('/account')}
+          label="Account"
+        />
         <hr/>
         <MenuItem
           onClick={()=>{signOut()}}

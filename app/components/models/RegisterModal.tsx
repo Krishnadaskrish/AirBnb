@@ -62,7 +62,7 @@ const RegisterModal = () => {
            <Heading
            title="Welcome to airbnb"
            subtitle="create an account"
-           center/>
+           />
            <Input
            id="email"
            label="Email"

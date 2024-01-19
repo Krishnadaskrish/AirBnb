@@ -13,7 +13,7 @@ import ListingCard from "@/app/components/listings/ListingCard";
 
 interface TripsClientProps {
   reservations:  SafeReservations[],
-  currentUser?: SafeUser | null,
+  currentUser?: SafeUser  | null,
 }
 
 const TripsClient: React.FC<TripsClientProps> = ({
@@ -44,7 +44,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
      <Heading
      title="Trips"
      subtitle="Where you've been and where you're going"
-     center/>
+     />
       <div 
         className="
           mt-10

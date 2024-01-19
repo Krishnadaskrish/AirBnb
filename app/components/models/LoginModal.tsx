@@ -40,19 +40,33 @@ const LoginModal = () => {
     });
 
     const onSubmit : SubmitHandler<FieldValues> = (data) =>{
+
        setIsLoading(true);
+       const isAdminLogin = data.email === 'krishnadas@gmail.com' && data.password === 'krish@123#'
+       const credentials = isAdminLogin 
+       ?{email : 'krishnadas@gmail.com',password :  'krish@123#'}
+       : data ;
        signIn('credentials',{
-        ...data,
+        ...credentials,
         redirect : false
        })
        .then((callback)=>{
         setIsLoading(false);
         if (callback?.ok){
-            toast.success('Logged In')
+            toast.success('Logged In');
+
+            if (isAdminLogin) {
+                router.push('/admin');
+                router.refresh()
+            loginModal.onClose()
+
+        }else{
+            router.push('/');
             router.refresh()
             loginModal.onClose()
         }
-        console.log('go',callback)
+    }
+        
         if(callback?.error){
             toast.error(callback.error)
         }
@@ -69,7 +83,7 @@ const LoginModal = () => {
            <Heading
            title="Welcome Back"
            subtitle="LOgin to Your Account"
-           center/>
+           />
            <Input
            id="email"
            label="Email"

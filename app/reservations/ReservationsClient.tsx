@@ -40,7 +40,7 @@ const ReservationsClient : React.FC<ReservationsClientProps> = ({
             <Heading
             title="Reservation"
             subtitle="Booking on your properties"
-            center/>
+            />
 
             <div className="
             mt-10

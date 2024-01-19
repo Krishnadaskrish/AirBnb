@@ -147,7 +147,7 @@ const RentModal = () => {
              <Heading
              title="where is your palce"
              subtitle="Helps gets find you"
-             center
+             
              />
              <CountrySelect
              value = {location}

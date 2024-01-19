@@ -122,7 +122,7 @@ const SearchModal = () => {
       <Heading
         title="Where do you wanna go?"
         subtitle="Find the perfect location!"
-        center
+        
       />
       <CountrySelect 
         value={location} 
