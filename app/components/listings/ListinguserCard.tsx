@@ -2,6 +2,7 @@
 import { SafeUser } from "@/app/types"
 import { useRouter } from "next/navigation"
 import React from "react"
+import Avatar from "../Avatar"
 
 
 interface userListingProps {
@@ -23,6 +24,9 @@ const ListinguserCard : React.FC<userListingProps> = ({
         <h3 className="text-lg leading-6 font-medium text-gray-900">
             User Profile
         </h3>
+        <br/>
+        <Avatar src={data.image}/>
+        <br/>
         <p className="mt-1 max-w-2xl text-sm text-gray-500">
             This is some information about the user.
         </p>
