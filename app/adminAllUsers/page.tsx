@@ -1,22 +1,31 @@
 import EmptyState from "../components/EmptyState";
 import ClientOnly from "../components/ClientOnly";
+import getAllUsers from "../actions/getAllUsers";
+
+
+import AllUsersClient from "./AllUsersClient";
 
 
 
-import AdminAllUsersClient from "./AdminAllUsersClient";
+const currentUserPage = async () =>{
 
-
-
-const AllUsersPage = async () =>{
-
-    
+    const user = await getAllUsers();
+     if(!user){
+        return (
+            <ClientOnly>
+                <EmptyState
+                title="Unautharized"
+                subtitle="please login"/>
+            </ClientOnly>
+        )
+     }
 
 
      return (
         <ClientOnly>
-            <AdminAllUsersClient
+            <AllUsersClient
              
-            
+            User ={user}
             />
         </ClientOnly>
      )
@@ -25,4 +34,4 @@ const AllUsersPage = async () =>{
 
 
 
-export default AllUsersPage
+export default currentUserPage
