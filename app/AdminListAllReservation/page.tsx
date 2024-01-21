@@ -1,7 +1,8 @@
 import ClientOnly from "../components/ClientOnly";
 import EmptyState from "../components/EmptyState";
 import getListings from "../actions/getListings";
-import AdminAllListingClient from "./AdminAllListingClient";
+import AdminAllReservationClient from "./AllReservationClient";
+import getReservations from "../actions/getReservations";
 
 // Import statements...
 
@@ -13,7 +14,7 @@ const AdminListingPropertiesPage = async () => {
     };
   
     try {
-      const listing = await getListings(params);
+      const listing = await getReservations(params);
   
       if (!listing) {
         return (
@@ -25,7 +26,7 @@ const AdminListingPropertiesPage = async () => {
   
       return (
         <ClientOnly>
-          <AdminAllListingClient Listing={listing} />
+          <AdminAllReservationClient Listing={listing} />
         </ClientOnly>
       );
     } catch (error) {

@@ -3,13 +3,14 @@
 import { useRouter } from "next/navigation";
 import Avatar from "../Avatar";
 import React from "react";
-import { SafeListing } from "@/app/types";
+import { SafeReservations } from "@/app/types";
 
-interface AdminListingProps {
-    data: SafeListing;
+interface AdminReservationProps {
+    data: SafeReservations ;
+    
 }
 
-const AdminListingCard: React.FC<AdminListingProps> = ({ data }) => {
+const ListingAllReservationCard: React.FC<AdminReservationProps> = ({ data }) => {
     return (
         <div className="mx-auto max-w-screen-lg px-4 py-8 sm:px-8">
             <div className="overflow-y-hidden rounded-lg border">
@@ -17,27 +18,27 @@ const AdminListingCard: React.FC<AdminListingProps> = ({ data }) => {
                     <table className="w-full">
                         <tbody className="text-black-500">
                             <tr className="bg-rose-600 text-left text-xs font-semibold uppercase tracking-widest text-white">
-                                <th className="px-5 py-3" colSpan={5}>{data.title}</th>
+                                <th className="px-5 py-3" colSpan={5}>User id :{data.userId}</th>
                             </tr>
                             <tr>
                                 <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                                    <p className="whitespace-no-wrap">ID: {data.id}</p>
+                                    <p className="whitespace-no-wrap">Property Id: {data.listingId}</p>
                                 </td>
                                 <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
                                     <div className="flex items-center">
-                                        <div className="h-10 w-10 flex-shrink-0">
+                                        {/* <div className="h-10 w-10 flex-shrink-0">
                                             <Avatar src={data.imageSrc} />
-                                        </div>
+                                        </div> */}
                                         <div className="ml-3">
-                                            <p className="whitespace-no-wrap">Titile: {data.title}</p>
+                                            <p className="whitespace-no-wrap">Start date: {data.startDate}</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                                    <p className="whitespace-no-wrap">Category: {data.category}</p>
+                                    <p className="whitespace-no-wrap">End date: {data.endDate}</p>
                                 </td>
                                 <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                                    <p className="whitespace-no-wrap">Created at: {data.locationValue}</p>
+                                    <p className="whitespace-no-wrap">totalPrice: {data.totalPrice}</p>
                                 </td>
                                 
                             </tr>
@@ -49,4 +50,4 @@ const AdminListingCard: React.FC<AdminListingProps> = ({ data }) => {
     );
 };
 
-export default AdminListingCard;
+export default ListingAllReservationCard;
