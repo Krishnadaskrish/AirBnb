@@ -1,6 +1,4 @@
-// AdminListingCard.tsx
 
-import { useRouter } from "next/navigation";
 import Avatar from "../Avatar";
 import React, { useCallback } from "react";
 import { SafeListing } from "@/app/types";

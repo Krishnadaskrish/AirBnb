@@ -2,18 +2,35 @@
 
 import { SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useCallback } from "react";
 import Avatar from "../Avatar";
 import Button from "../Button";
 
 interface   UserListingProps {
-  data : SafeUser 
+  data : SafeUser ;
+  disabled? : boolean;
+  actionId? : string; 
+  onAction ? : (id : string)=>void
 }
 
 const ListingAllUsersCard : React.FC <UserListingProps> = ({
-  data
+  data,
+  disabled,
+  actionId = '' ,
+  onAction
 }) => {
-    const router = useRouter()
+  const router = useRouter()
+  const handleCancel = useCallback((e:React.MouseEvent<HTMLButtonElement>)=>{
+
+    e.stopPropagation()
+    if(disabled){
+        return ;
+    }
+
+      onAction ?.(actionId)
+
+
+},[onAction,actionId,disabled])
     return ( 
         <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-8" onClick={()=>router.push(`/AdminAllUsers`)}>
   <div className="flex items-center justify-between pb-6">
@@ -68,7 +85,7 @@ const ListingAllUsersCard : React.FC <UserListingProps> = ({
             </td>
 
             <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-             <button className="w-20 bg-rose-500 rounded-lg font-semibold text-white">delete</button>
+             <button className="w-20 bg-rose-500 rounded-lg font-semibold text-white" disabled={disabled} onClick={handleCancel}>delete</button>
             </td>
           </tr>
           
