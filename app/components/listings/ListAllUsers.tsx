@@ -4,6 +4,7 @@ import { SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
 import React from "react";
 import Avatar from "../Avatar";
+import Button from "../Button";
 
 interface   UserListingProps {
   data : SafeUser 
@@ -67,7 +68,7 @@ const ListingAllUsersCard : React.FC <UserListingProps> = ({
             </td>
 
             <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-              <span className="rounded-full bg-green-200 px-3 py-1 text-xs font-semibold text-green-900">Active</span>
+             <button className="w-20 bg-rose-500 rounded-lg font-semibold text-white">delete</button>
             </td>
           </tr>
           
