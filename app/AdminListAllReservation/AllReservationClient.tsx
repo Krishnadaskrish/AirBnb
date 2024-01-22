@@ -21,7 +21,7 @@ const AdminAllReservationClient : React.FC<AllListingProps> = ({
     const [deleteId , setDeleteId] = useState('');
     const onCancel = useCallback((id:string)=>{
         setDeleteId(id);
-        axios.delete(`api/reservations/${id}`)
+        axios.delete(`api/AdReservation/${id}`)
         .then(()=>{
            toast.success('cancel reservation')
            router.refresh()
@@ -40,7 +40,7 @@ const AdminAllReservationClient : React.FC<AllListingProps> = ({
     return ( 
         <Container>
             <Heading
-            title="Properties"/>
+            title=" total Reservation"/>
             {Listing.map((listing)=>(
 
                 <ListingAllReservationCard key={listing.id} data={listing}
