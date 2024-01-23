@@ -15,6 +15,15 @@ const AdminListingPropertiesPage = async () => {
   
     try {
       const listing = await getReservations(params);
+
+      if(listing.length === 0){
+        return(
+          <ClientOnly>
+            <EmptyState title="No reservation yet"
+            subtitle="Let's hope for the best"/>
+          </ClientOnly>
+        )
+      }
   
       if (!listing) {
         return (

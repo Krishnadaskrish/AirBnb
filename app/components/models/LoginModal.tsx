@@ -12,7 +12,6 @@ import {
 } from 'react-hook-form'
 import useRegisterModel from "@/app/hooks/UseRegisterModal";
 import useLoginModel from "@/app/hooks/UseLoginModal";
-import { error } from "console";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
