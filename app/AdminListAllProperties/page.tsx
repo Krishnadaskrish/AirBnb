@@ -23,7 +23,7 @@ const AdminListingPropertiesPage = async () => {
         );
       }
   
-      return (
+      return (    
         <ClientOnly>
           <AdminAllListingClient Listing={listing} />
         </ClientOnly>

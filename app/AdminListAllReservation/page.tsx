@@ -4,6 +4,7 @@ import getListings from "../actions/getListings";
 import AdminAllReservationClient from "./AllReservationClient";
 import getReservations from "../actions/getReservations";
 
+
 // Import statements...
 
 
@@ -15,6 +16,8 @@ const AdminListingPropertiesPage = async () => {
   
     try {
       const listing = await getReservations(params);
+
+     
 
       if(listing.length === 0){
         return(
