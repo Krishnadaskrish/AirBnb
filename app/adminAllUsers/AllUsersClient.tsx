@@ -7,6 +7,7 @@ import ListingAllUsersCard from "../components/listings/ListAllUsers";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
+import ListingAllUsersAdmin from "../components/listings/ListAllUsersAdmin";
 
 
 interface AllUsersClientProps {
@@ -45,7 +46,7 @@ const AllUsersClient:React.FC<AllUsersClientProps> = ({
      
      />
        {User.map((User) => (
-  <ListingAllUsersCard key={User.id} data={User}
+  <ListingAllUsersAdmin key={User.id} data={User}
   disabled = {deleteId === User.id} onAction={onCancel} actionId={User.id} />
 ))}
 

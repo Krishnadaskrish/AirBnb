@@ -51,7 +51,7 @@ const ListingAllUsersCard : React.FC <UserListingProps> = ({
             <th className="px-5 py-3">Email</th>
             <th className="px-5 py-3">Created at</th>
             <th className="px-5 py-3">Updated at</th>
-            <th className="px-5 py-3">Status</th>
+            <th className="px-5 py-3">Delete User</th>
           </tr>
         </thead>
       </table>
