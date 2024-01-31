@@ -32,9 +32,7 @@ const AllUsersClient:React.FC<AllUsersClientProps> = ({
        .catch(()=>{
         toast.error('something wrong')
        })
-       .finally(()=>{
-        setDeleteId(id)
-       })
+       
 
       },[])
     
@@ -46,7 +44,7 @@ const AllUsersClient:React.FC<AllUsersClientProps> = ({
      
      />
        {User.map((User) => (
-  <ListingAllUsersAdmin key={User.id} data={User}
+  <ListingAllUsersCard key={User.id} data={User}
   disabled = {deleteId === User.id} onAction={onCancel} actionId={User.id} />
 ))}
 

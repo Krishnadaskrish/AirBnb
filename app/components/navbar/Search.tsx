@@ -19,7 +19,7 @@ const Search = () => {
          if(locationValue) {
             return getByValue(locationValue as string) ?.label ;
          }      
-         return 'Anywhere' ;
+         return 'Where' ;
 
     },[getByValue,locationValue])
 
@@ -56,8 +56,8 @@ const Search = () => {
         <div onClick={searchModal.onOpen} className="border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer">
             <div className="flex flex-row item-center justify-between">
                 <div className="flex flex-row items-center justify-between">
-                    <div className="px-6 text-sm font-semibold">{locationLabel}</div>
-                    <div className="hidden font-semibold text-sm px-6 sm:block text-center border-x-[1px] flex-1">{durationLabel}</div>
+                    <div className="px-6 text-sm font-medium">{locationLabel}</div>
+                    <div className="hidden font-medium text-sm px-6 sm:block text-center border-x-[1px] flex-1">{durationLabel}</div>
                     <div className="pl-6 pr-2 flex flex-row items-center gap-3 text-gray-600">
                         <div className="hidden sm:block ">{guestLabel}</div>
 

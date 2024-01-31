@@ -17,7 +17,8 @@ export async function POST(
     listingId,
     startDate,
     endDate,
-    totalPrice
+    totalPrice,
+    
    } = body;
 
    if (!listingId || !startDate || !endDate || !totalPrice) {

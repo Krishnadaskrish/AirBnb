@@ -1,7 +1,7 @@
 'use client'
 import {AiOutlineMenu} from "react-icons/ai"
 import Avatar from "../Avatar";
-import { useCallback, useState } from "react";
+import { useCallback, useState,useEffect } from "react";
 import MenuItem from "./MenuItem";
 import useRegisterModel from "@/app/hooks/UseRegisterModal";
 import LoginModal from "../models/LoginModal";
@@ -34,11 +34,16 @@ const UserMenu : React.FC <UserMenuProps> = ({
          }
          rentmodal.onOpen()
     },[currentUser,loginModal,rentmodal])
+    useEffect(() => {
+      if (currentUser) {
+        setIsOpen(false);
+      }
+    }, [currentUser]);
     return ( 
         <div className="relative">
         <div className="flex flex-row items-center gap-3">
-            <div onClick={onRent} className="hidden md:block font-semibold text-sm py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer">
-                airBnb your home
+            <div onClick={onRent} className="hidden md:block font-medium text-sm py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer">
+                Switch To Hosting
             </div>
             <div onClick={ToggleOpen} className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition">
 
@@ -54,24 +59,21 @@ const UserMenu : React.FC <UserMenuProps> = ({
         <>
         <MenuItem
           onClick={()=>router.push('/trips')}
-          label="My trips"
+          label="Trips"
         />
         <MenuItem
           onClick={()=>router.push('/favorites')}
-          label="My favorites"
+          label="Wishlists"
         />
         <MenuItem
           onClick={()=>router.push('/reservations')}
-          label="My reservations"
+          label="Reservations"
         />
         <MenuItem
           onClick={()=>router.push('/properties')}
-          label="My Properties"
+          label="Properties"
         />
-        <MenuItem
-          onClick={rentmodal.onOpen}
-          label="Airbnb my home"
-        />
+       
         <MenuItem
           onClick={()=>router.push('/account')}
           label="Account"

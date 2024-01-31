@@ -45,13 +45,9 @@ const ListingAllUsersCard : React.FC <UserListingProps> = ({
       <table className="w-full">
         <thead>
           <tr className="bg-rose-600 text-left text-xs font-semibold uppercase tracking-widest text-white">
-            <th className="px-5 py-3">User Id</th>
-            <th className="px-5 py-3">Profile picture</th>
-            <th className="px-5 py-3">user</th>
-            <th className="px-5 py-3">Email</th>
-            <th className="px-5 py-3">Created at</th>
-            <th className="px-5 py-3">Updated at</th>
-            <th className="px-5 py-3">Delete User</th>
+            <th className="px-5 py-3">User name</th>
+            
+            
           </tr>
         </thead>
       </table>
@@ -61,28 +57,25 @@ const ListingAllUsersCard : React.FC <UserListingProps> = ({
         <tbody className="text-black-500">
           <tr>
             <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-              <p className="whitespace-no-wrap">{data.id}</p>
+              <p className="whitespace-no-wrap">{data.name}</p>
             </td>
             <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-            <Avatar src={data.image} />
+              <Avatar src={data.image}/>
             </td>
+           
             <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
               <div className="flex items-center">
                 
                 <div className="ml-3">
-                  <p className="whitespace-no-wrap">{data.name}</p>
+                  <p className="whitespace-no-wrap">Email id : {data.email}</p>
                 </div>
               </div>
             </td>
+            
             <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-              <p className="whitespace-no-wrap">{data.email}</p>
+              <p className="whitespace-no-wrap"> Created At :  {data.createdAt}</p>
             </td>
-            <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-              <p className="whitespace-no-wrap">{data.createdAt}</p>
-            </td>
-            <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-              <p className="whitespace-no-wrap">{data.updatedAt}</p>
-            </td>
+            
 
             <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
              <button className="w-20 bg-rose-500 rounded-lg font-semibold text-white" disabled={disabled} onClick={handleCancel}>delete</button>

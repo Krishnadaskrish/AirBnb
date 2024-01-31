@@ -36,9 +36,7 @@ const AdminListingCard: React.FC<AdminListingProps> = ({
                                 <th className="px-5 py-3" colSpan={5}>{data.title}</th>
                             </tr>
                             <tr>
-                                <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                                    <p className="whitespace-no-wrap">ID: {data.id}</p>
-                                </td>
+                                
                                 <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
                                     <div className="flex items-center">
                                         <div className="h-10 w-10 flex-shrink-0">
