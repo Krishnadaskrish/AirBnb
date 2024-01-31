@@ -103,6 +103,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   <MenuItem
                     onClick={() => {
                       signOut();
+                      onMenuItemClick()
                     }}
                     label="Logout"
                   />
